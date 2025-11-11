@@ -14,10 +14,14 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'HqtqXWw2Zgdbuqx9FHiznyxWanuP0T6o',
+            'cookieValidationKey' => 'tnJijdrdurklaWnpfYzDABBikv3tor1F',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'session' => [
+            'class' => 'yii\web\Session',
+            'savePath' => '@runtime/session',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
@@ -42,14 +46,28 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                    ],
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'post/index',
+                'posts' => 'post/index',
+                'post/create' => 'post/create',
+                'post/<action:\w+>' => 'post/<action>'
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

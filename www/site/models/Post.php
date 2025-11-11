@@ -99,7 +99,7 @@ class Post extends ActiveRecord
             ['imageFile', 'validateImageDimensions'],
             
             // Captcha validation (only for new posts)
-            ['verifyCode', 'captcha', 'on' => 'create'],
+            ['verifyCode', 'captcha', 'captchaAction' => 'post/captcha', 'on' => 'create'],
             ['verifyCode', 'required', 'on' => 'create'],
             
             // Secure token
