@@ -41,7 +41,9 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "yii\\composer\\Installer::postInstall"
+            "yii\\composer\\Installer::postInstall",
+            "mkdir -p runtime/session assets",
+            "chmod -R 777 runtime assets"
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
