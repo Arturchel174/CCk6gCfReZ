@@ -65,7 +65,9 @@ $config = [
                 '' => 'post/index',
                 'posts' => 'post/index',
                 'post/create' => 'post/create',
-                'post/<action:\w+>' => 'post/<action>'
+                'post/<action:\w+>' => 'post/<action>',
+                'manage/edit/<token:[a-f0-9]{64}>' => 'management/edit',
+                'manage/delete/<token:[a-f0-9]{64}>' => 'management/delete',
             ],
         ],
     ],
