@@ -83,6 +83,7 @@ class PostController extends Controller
         $model = new Post(['scenario' => 'create']);
 
         if ($model->load(Yii::$app->request->post())) {
+            $model->ip_address = Yii::$app->request->userIP;
             // Check rate limiting
             $rateLimiter = new RateLimiter();
             $rateLimitCheck = $rateLimiter->checkRateLimit($model->email, $model->ip_address);
